@@ -320,23 +320,26 @@ class DataTypes_Auto_infer(BaseEstimator, TransformerMixin):
             dt_print_out.drop(index="dummy_target", errors="ignore", inplace=True)
 
             display(dt_print_out[["Data Type"]])
-            self.response = input()
 
-            if self.response in [
-                "quit",
-                "Quit",
-                "exit",
-                "EXIT",
-                "q",
-                "Q",
-                "e",
-                "E",
-                "QUIT",
-                "Exit",
-            ]:
-                sys.exit(
-                    "Read the documentation of setup to learn how to overwrite data types over the inferred types. setup function must run again before you continue modeling."
-                )
+            #AHA: interative responce has been deactivated
+            if False:
+                self.response = input()
+
+                if self.response in [
+                    "quit",
+                    "Quit",
+                    "exit",
+                    "EXIT",
+                    "q",
+                    "Q",
+                    "e",
+                    "E",
+                    "QUIT",
+                    "Exit",
+                ]:
+                    sys.exit(
+                        "Read the documentation of setup to learn how to overwrite data types over the inferred types. setup function must run again before you continue modeling."
+                    )
 
         # drop time columns
         # data.drop(self.drop_time,axis=1,errors='ignore',inplace=True)
